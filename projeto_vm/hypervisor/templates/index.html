@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Lamazon</title>
+
+  <link href='static/css/site.css' rel='stylesheet' type='text/css' />
+  <script src="../static/js/jquery-1.11.3.js"></script>
+  <script src="../static/js/criar.js"></script>
+</head>
+
+
+<body>
+
+<script>
+	function disableInput(sel){
+		var quantidade_interfaces = sel.value
+		if(quantidade_interfaces == 1){			
+
+			document.getElementById("ip1").disabled = false;
+			document.getElementById("netmask1").disabled = false;
+			document.getElementById("ip2").disabled = true;
+			document.getElementById("netmask2").disabled = true;
+			document.getElementById("ip3").disabled = true;
+			document.getElementById("netmask3").disabled = true;
+			document.getElementById("ip4").disabled = true;
+			document.getElementById("netmask4").disabled = true;		
+		}
+
+		if(quantidade_interfaces == 2){
+
+			document.getElementById("ip1").disabled = false;
+			document.getElementById("netmask1").disabled = false;
+			document.getElementById("ip2").disabled = false;
+			document.getElementById("netmask2").disabled = false;
+			document.getElementById("ip3").disabled = true;
+			document.getElementById("netmask3").disabled = true;
+			document.getElementById("ip4").disabled = true;
+			document.getElementById("netmask4").disabled = true;
+		
+		}
+
+		if(quantidade_interfaces == 3){
+
+			document.getElementById("ip1").disabled = false;
+			document.getElementById("netmask1").disabled = false;
+			document.getElementById("ip2").disabled = false;
+			document.getElementById("netmask2").disabled = false;
+			document.getElementById("ip3").disabled = false;
+			document.getElementById("netmask3").disabled = false;
+			document.getElementById("ip4").disabled = true;
+			document.getElementById("netmask4").disabled = true;
+		
+		}
+
+		if(quantidade_interfaces == 4){
+
+			document.getElementById("ip1").disabled = false;
+			document.getElementById("netmask1").disabled = false;
+			document.getElementById("ip2").disabled = false;
+			document.getElementById("netmask2").disabled = false;
+			document.getElementById("ip3").disabled = false;
+			document.getElementById("netmask3").disabled = false;
+			document.getElementById("ip4").disabled = false;
+			document.getElementById("netmask4").disabled = false;
+		
+		}
+	}
+
+</script>
+
+<section class='container'>
+          <hgroup>
+            <h1>Bem vindo à Lamazon!</h1>
+          </hgroup>
+
+
+        <div class="row">
+          <section class='col-xs-12 col-sm-6 col-md-6'>
+
+            <section>
+              <h2>Escolha as configurações de sua VM</h2>
+	<form action="/criado">	
+		<div>
+			<h4>CPU</h4>
+			<select name="quantidade_cpus" class="combobox" id="quantidade_cpus" >
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>			
+			</select> 
+		</div>
+		<div>
+			<h4>Memória (MB)</h4>
+			<input type="number" name="memoria" id="quantidade_memoria"/> 
+		</div>
+		<div>
+			<h4>Interfaces</h4>
+			<h5>Quantidade</h5>
+			<select id="quantidade_interfaces" class="combobox" onchange="disableInput(this)">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>			
+			</select>
+
+			
+				<input type="text" id="ip1" name="ip1" placeholder="Endereço IP" />
+				<input type="text" name="netmask1" id="netmask1" class="netmask" placeholder="Netmask (Ex. 255.255.255.0)"/>
+				
+				
+				<input type="text" name="ip2" id="ip2" class="ip" placeholder="Endereço IP (Ex. 192.168.0.1)" disabled=true />
+				<input type="text" id="netmask2" name="netmask2" class="netmask" placeholder="Netmask (Ex. 255.255.255.0)" disabled=true />
+			
+				
+				<input type="text" name="ip3" class="ip" id="ip3" placeholder="Endereço IP (Ex. 192.168.0.1)" disabled=true />
+				<input type="text" id="netmask3" class="netmask" name="netmask3" placeholder="Netmask (Ex. 255.255.255.0)" disabled=true />
+
+				
+				<input type="text" name="ip4" class="ip" id="ip4" placeholder="Endereço IP (Ex. 192.168.0.1)" disabled=true />
+				<input type="text" id="netmask4" class="netmask" name="netmask4" placeholder="Netmask (Ex. 255.255.255.0)" disabled=true />
+
+				
+				
+			
+		</div>        
+
+	<button id="btnCriar" class="button">CRIAR</button>        
+</form>
+</body>
+</html>
